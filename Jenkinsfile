@@ -13,7 +13,7 @@ stage('Build')
 	{
 	sh "${MavenHome}/bin/mvn clean package"  
 	}
-/*	
+	
 stage('ExecuteSonarQubeReport')
 	{
 	sh "${MavenHome}/bin/mvn sonar:sonar"
@@ -38,5 +38,5 @@ Regards,
 Manohar K
 ''', subject: 'Build Over', to: 'manukumar.cv@gmail.com'
 }
-*/
+
 }
