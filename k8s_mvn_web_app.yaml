@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mvn-web-app-deployment
-  namespace: mvn-web-app 
+  namespace: mvn-web-app-ns
 spec:
   replicas: 2
   minReadySeconds: 30
