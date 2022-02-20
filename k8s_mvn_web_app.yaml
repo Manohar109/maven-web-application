@@ -1,0 +1,54 @@
+#Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvn-web-app-deployment
+  namespace: mvn-web-app 
+spec:
+  replicas: 2
+  minReadySeconds: 30
+  revisionHistoryLimit: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: mavenwebapp
+  template:
+    metadata:
+      name: mvn-web-app-container
+      labels:
+        app: mavenwebapp
+    spec:
+      containers:
+      - name: mvn-web-app-container
+        image: manohark109/maven-webapp:tag
+        ports:
+        - containerPort: 8080
+---
+#Namespace for application
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mvn-web-app-ns
+---
+
+#Service for accessing application outside of cluster
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mvn-web-app-svc 
+  namespace: mvn-web-app-ns
+spec:
+  type: NodePort
+  selector:
+    app: mavenwebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30003
