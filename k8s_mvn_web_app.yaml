@@ -1,5 +1,4 @@
-#Deployment
-
+#Deployment rolling update strategy
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,16 +28,13 @@ spec:
         ports:
         - containerPort: 8080
 ---
-#Namespace for application
-
+#Namespace
 apiVersion: v1
 kind: Namespace
 metadata:
   name: mvn-web-app-ns
 ---
-
-#Service for accessing application outside of cluster
-
+#Service 
 apiVersion: v1
 kind: Service
 metadata:
