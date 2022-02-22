@@ -26,7 +26,7 @@ spec:
       - name: regcred01
       containers:
       - name: mvn-web-app-container
-        image: ec2-54-255-241-168.ap-southeast-1.compute.amazonaws.com:8085/maven-webapp:tag
+        image: ec2-54-255-241-168.ap-southeast-1.compute.amazonaws.com/maven-webapp:tag
         ports:
         - containerPort: 8080
 ---
