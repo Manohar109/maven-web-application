@@ -22,7 +22,7 @@ spec:
       labels:
         app: mavenwebapp
     spec:
-      imapePullSecrets:
+      imagePullSecrets:
       - name: regcred
         containers:
         - name: mvn-web-app-container
