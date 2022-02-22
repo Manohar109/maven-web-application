@@ -23,7 +23,7 @@ spec:
         app: mavenwebapp
     spec:
       imagePullSecrets:
-      - name: regcred
+      - name: regcred01
       containers:
       - name: mvn-web-app-container
         image: ec2-54-255-241-168.ap-southeast-1.compute.amazonaws.com:8085/maven-webapp:tag
