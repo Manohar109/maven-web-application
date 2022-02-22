@@ -22,11 +22,13 @@ spec:
       labels:
         app: mavenwebapp
     spec:
-      containers:
-      - name: mvn-web-app-container
-        image: manohark109/maven-webapp:tag
-        ports:
-        - containerPort: 8080
+      imapePullSecrets:
+      - name: regcred
+        containers:
+        - name: mvn-web-app-container
+          image: ec2-54-255-241-168.ap-southeast-1.compute.amazonaws.com:8085/maven-webapp:tag
+          ports:
+          - containerPort: 8080
 ---
 #Namespace
 apiVersion: v1
@@ -47,4 +49,4 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    nodePort: 30003
+    nodePort: 30005
